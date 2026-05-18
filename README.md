@@ -35,8 +35,9 @@
 ### Step 3. 이야기 듣기
 아이가 글을 직접 읽지 않아도 원문/쉬운 글을 음성으로 들을 수 있습니다.
 
-![Step 3 - 쉬운 글 보기](./docs/screenshots/step3-listen-easy.png)
 ![Step 3-2 - 듣기 액션](./docs/screenshots/step3-listen-actions.png)
+![Step 3 - 쉬운 글 보기](./docs/screenshots/step3-listen-easy.png)
+
 
 ### Step 4. 말하기 (멀티턴 대화)
 Kanana 질문을 듣고 음성으로 답한 뒤, 피드백과 다음 질문으로 이어지는 단계입니다.
