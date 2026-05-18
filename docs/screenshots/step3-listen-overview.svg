@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="900" viewBox="0 0 1440 900" role="img" aria-label="Step 3. 이야기 듣기">
+  <rect width="1440" height="900" fill="#f8fafc"/>
+  <rect x="40" y="40" width="1360" height="820" rx="28" fill="#ffffff" stroke="#dbe3ef" stroke-width="4"/>
+  <text x="720" y="390" text-anchor="middle" font-size="64" fill="#0f172a" font-family="Arial, sans-serif">Step 3. 이야기 듣기</text>
+  <text x="720" y="470" text-anchor="middle" font-size="34" fill="#475569" font-family="Arial, sans-serif">원문 듣기 / 쉬운 글 보기</text>
+  <text x="720" y="550" text-anchor="middle" font-size="28" fill="#64748b" font-family="Arial, sans-serif">이미지를 교체하면 README에 자동 반영됩니다</text>
+</svg>
