@@ -20,39 +20,39 @@
 ### Step 1. 책 고르기
 아이와 보호자가 오늘 읽을 그림책을 선택하는 시작 화면입니다.
 
-![Step 1 - 책 고르기](./docs/screenshots/step1-book-select.svg)
+![Step 1 - 책 고르기](./docs/screenshots/step1-book-select.png)
 
 ### Step 2. 그림 보기
 선택한 그림책의 원문과 장면을 먼저 확인하는 단계입니다.
 
-![Step 2 - 그림 보기](./docs/screenshots/step2-story-view.svg)
+![Step 2 - 그림 보기](./docs/screenshots/step2-story-view.png)
 
 ### Step 2-2. 아이에게 맞게 바꾸기
 원문이 어렵다면 기초/표준/심화 수준으로 문장을 바꾸는 흐름입니다.
 
-![Step 2-2 - 아이에게 맞게 바꾸기](./docs/screenshots/step2-level-adaptation.svg)
+![Step 2-2 - 아이에게 맞게 바꾸기](./docs/screenshots/step2-level-adaptation.png)
 
 ### Step 3. 이야기 듣기
 아이가 글을 직접 읽지 않아도 원문/쉬운 글을 음성으로 들을 수 있습니다.
 
-![Step 3 - 이야기 듣기](./docs/screenshots/step3-listen-overview.svg)
-![Step 3-2 - 듣기 액션](./docs/screenshots/step3-listen-actions.svg)
+![Step 3 - 쉬운 글 보기](./docs/screenshots/step3-listen-easy.png)
+![Step 3-2 - 듣기 액션](./docs/screenshots/step3-listen-actions.png)
 
 ### Step 4. 말하기 (멀티턴 대화)
 Kanana 질문을 듣고 음성으로 답한 뒤, 피드백과 다음 질문으로 이어지는 단계입니다.
 
-![Step 4 - 녹음 및 답변](./docs/screenshots/step4-conversation-recording.svg)
-![Step 4-2 - 멀티턴 대화](./docs/screenshots/step4-conversation-multiturn.svg)
+![Step 4 - 녹음 및 답변](./docs/screenshots/step4-conversation-recording.png)
+![Step 4-2 - 멀티턴 대화 1](./docs/screenshots/step4-conversation-multiturn1.png)
+![Step 4-3 - 멀티턴 대화 2](./docs/screenshots/step4-conversation-multiturn2.png)
 
 ### Step 5. 보호자 리포트
 대화 내용을 바탕으로 오늘 독서 활동을 간단히 정리해 보는 단계입니다.
 
-![Step 5 - 리포트 시작](./docs/screenshots/step5-report-start.svg)
-![Step 5-2 - 리포트 생성 중](./docs/screenshots/step5-report-loading.svg)
-![Step 5-3 - 리포트 결과](./docs/screenshots/step5-report-result.svg)
+![Step 5 - 리포트 시작](./docs/screenshots/step5-report-start.png)
+![Step 5-2 - 리포트 생성 중](./docs/screenshots/step5-report-loading.png)
+![Step 5-3 - 리포트 결과](./docs/screenshots/step5-report-result.png)
 
-> 현재는 Step별 placeholder 이미지를 연결해두었습니다.  
-> 같은 파일명으로 실제 스크린샷을 교체하면 README에 자동 반영됩니다.
+> 실제 데모 스크린샷을 Step 흐름 순서대로 정리했습니다.
 
 ## 핵심 사용자 흐름
 1. **책 고르기**: 토끼 이야기 / 원숭이 이야기 / 하율 이야기 중 선택
