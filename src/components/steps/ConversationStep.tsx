@@ -54,11 +54,51 @@ export default function ConversationStep({
   isSpeechListening,
   speechError,
 }: ConversationStepProps) {
+  type VoiceInputState = "idle" | "recording" | "recorded" | "sending";
+
   const currentQuestion =
     conversation.currentQuestion || (conversation.messages.length === 0 ? levelAdjustedQuestion : "대화를 마무리해도 괜찮아요.");
 
   const currentSpeechText =
     latestKananaMessage?.text || conversation.currentQuestion || (conversation.messages.length === 0 ? levelAdjustedQuestion : "") || lastFeedbackText;
+
+  const trimmedDraft = draftAnswerText.trim();
+  const hasRecordedAudio = Boolean(audioUrl);
+  const hasRecordedAnswer = hasRecordedAudio || Boolean(trimmedDraft);
+  const voiceInputState: VoiceInputState = isSendingTurn
+    ? "sending"
+    : isRecording
+      ? "recording"
+      : hasRecordedAnswer
+        ? "recorded"
+        : "idle";
+
+  const micButtonLabel =
+    voiceInputState === "recording"
+      ? "🎙️ 듣고 있어요..."
+      : voiceInputState === "sending"
+        ? "⏳ Kanana가 듣고 있어요"
+        : voiceInputState === "recorded"
+          ? "🎤 다시 말해볼까요?"
+          : "🎤 크게 말해볼까요?";
+
+  const micButtonStyle =
+    voiceInputState === "recording"
+      ? "bg-rose-500 text-white ring-8 ring-rose-100 shadow-2xl animate-pulse"
+      : voiceInputState === "sending"
+        ? "bg-slate-400 text-white shadow-md"
+        : voiceInputState === "recorded"
+          ? "bg-emerald-500 text-white shadow-lg"
+          : "bg-slate-900 text-white shadow-lg";
+
+  const micStatusText =
+    voiceInputState === "recording"
+      ? "지금 목소리를 듣고 있어요. 다시 누르면 녹음이 끝나요."
+      : voiceInputState === "sending"
+        ? "답변을 보내는 중이에요."
+        : voiceInputState === "recorded"
+          ? "📝 이렇게 들었어요. 맞는지 확인하고 보내주세요."
+          : "마이크 버튼을 한 번 눌러 말하고, 다시 눌러 마무리해요.";
 
   return (
     <section className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm">
@@ -115,38 +155,44 @@ export default function ConversationStep({
             <div ref={chatEndRef} />
           </div>
 
-          <button
-            type="button"
-            onClick={onToggleRecording}
-            aria-label={isRecording ? "녹음 종료" : "녹음 시작"}
-            className={`w-full rounded-3xl px-4 py-4 text-base font-black text-white ${isRecording ? "bg-rose-500" : "bg-slate-900"}`}
-          >
-            {isRecording ? "녹음 종료하기" : "큰 마이크 버튼으로 답하기"}
-          </button>
+          <article className="rounded-2xl border border-slate-200 bg-white p-4">
+            <div className="flex justify-center">
+              <button
+                type="button"
+                onClick={onToggleRecording}
+                disabled={isSendingTurn}
+                aria-label={isRecording ? "녹음 종료" : "녹음 시작"}
+                className={`flex h-44 w-44 items-center justify-center rounded-full px-6 text-center text-lg font-black leading-7 transition disabled:cursor-not-allowed ${micButtonStyle}`}
+              >
+                {micButtonLabel}
+              </button>
+            </div>
+            <p className="mt-4 text-center text-sm font-medium text-slate-700">{micStatusText}</p>
+            <p className="mt-1 text-center text-xs text-slate-500">
+              {isSpeechListening ? "실시간 음성 인식 중" : "음성 인식 대기 중"}
+              {!isSpeechRecognitionSupported ? " · 이 브라우저는 실시간 음성 인식을 지원하지 않아요" : ""}
+            </p>
+          </article>
 
-          <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2 text-xs text-slate-600">
-            {isRecording ? "녹음 중..." : "대기 중"}
-            {isSpeechListening ? " · 음성 인식 중" : ""}
-            {!isSpeechRecognitionSupported ? " · 이 브라우저는 실시간 음성 인식을 지원하지 않아요" : ""}
+          <div className="space-y-3 rounded-2xl border border-slate-200 bg-slate-50 p-3">
+            {audioUrl ? <audio controls src={audioUrl} className="w-full" /> : null}
+            <div className="space-y-1">
+              <label htmlFor="draft-answer" className="text-xs font-semibold text-slate-600">
+                음성 인식 결과 (직접 입력/수정 가능)
+              </label>
+              <textarea
+                id="draft-answer"
+                rows={4}
+                value={draftAnswerText}
+                onChange={(event) => onDraftAnswerTextChange(event.target.value)}
+                placeholder="마이크를 쓰지 않아도 여기에서 직접 답을 쓸 수 있어요"
+                className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm"
+              />
+            </div>
           </div>
 
-          {audioUrl ? <audio controls src={audioUrl} className="w-full" /> : null}
           {recorderError ? <p className="text-xs text-rose-600">{recorderError}</p> : null}
           {speechError ? <p className="text-xs text-rose-600">{speechError}</p> : null}
-
-          <div className="space-y-1">
-            <label htmlFor="draft-answer" className="text-xs font-semibold text-slate-600">
-              음성 인식 결과 (수정 가능)
-            </label>
-            <textarea
-              id="draft-answer"
-              rows={4}
-              value={draftAnswerText}
-              onChange={(event) => onDraftAnswerTextChange(event.target.value)}
-              placeholder="아이 답변을 확인하고 필요하면 수정해 주세요"
-              className="w-full rounded-2xl border border-slate-200 bg-white px-3 py-2 text-sm"
-            />
-          </div>
 
           {isSendingTurn ? (
             <div>
@@ -154,15 +200,17 @@ export default function ConversationStep({
             </div>
           ) : null}
 
-          <button
-            type="button"
-            onClick={onSendAnswer}
-            disabled={isSendingTurn || conversation.isFinished}
-            aria-label="답변 보내기"
-            className="w-full rounded-2xl bg-slate-900 px-4 py-3 text-sm font-bold text-white disabled:opacity-60"
-          >
-            답변 보내기
-          </button>
+          {hasRecordedAnswer || isSendingTurn ? (
+            <button
+              type="button"
+              onClick={onSendAnswer}
+              disabled={isSendingTurn || conversation.isFinished || isRecording}
+              aria-label="답변 보내기"
+              className="w-full rounded-2xl bg-slate-900 px-4 py-3 text-sm font-bold text-white disabled:opacity-60"
+            >
+              답변 보내기
+            </button>
+          ) : null}
 
           <button
             type="button"
