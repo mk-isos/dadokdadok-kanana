@@ -1,49 +1,41 @@
 # 다독다독 × Kanana-o
 
+[![Live Demo](https://img.shields.io/badge/Live-Demo-000000?style=for-the-badge&logo=vercel&logoColor=white)](https://dadokdadok-kanana.vercel.app)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=nextdotjs)](https://nextjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-3178C6?logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](./LICENSE)
 
-> 발달장애 아동이 그림책을 보고, 듣고, 말하며 감정을 이해하도록 돕는 AI 독서 친구 데모
+> 다독다독은 발달장애 아동이 그림책을 보고, 듣고, 말하며 감정을 이해할 수 있도록 돕는 AI 독서 친구입니다.
 
-## 프로젝트 배경
-다독다독은 Kanana-o 옴니모달 API를 **실제 독서 교육 시나리오**에 연결해 검증하기 위한 데모입니다.
+## Demo
+- Live Service: [https://dadokdadok-kanana.vercel.app](https://dadokdadok-kanana.vercel.app)
+- 사용자는 자신의 Kanana API Key를 직접 입력해 데모를 체험할 수 있습니다.
 
-- 아이가 글을 직접 읽기 어려워도, 그림을 보며 이야기를 듣고 대화할 수 있도록 설계했습니다.
-- 목표는 정답 채점이 아니라 **감정 이해와 표현 연습**을 돕는 것입니다.
-- 리포트는 관찰 보조용이며 진단/치료 목적이 아닙니다.
+## 프로젝트 소개
+다독다독은 Kanana-o를 활용해 그림책 독서 과정을 대화형 경험으로 확장한 MVP 서비스입니다.  
+아이가 읽기 어려운 문장도 원문/쉬운 문장으로 듣고, Kanana와 멀티턴 대화를 이어가며 감정을 표현할 수 있도록 설계했습니다.
 
-## 데모 영상 / 스크린샷
-- 데모 영상: `TODO - 영상 링크 추가`
+## 핵심 화면
+![대표 화면 - 다독다독 Step 흐름](./docs/screenshots/step1-book-select.png)
 
-### Step 1. 책 고르기
+## Step Flow
+1. 책 고르기
 ![Step 1 - 책 고르기](./docs/screenshots/step1-book-select.png)
 
-### Step 2. 그림 보기
+2. 그림 보기
 ![Step 2 - 그림 보기](./docs/screenshots/step2-story-view.png)
-![Step 2-2 - 아이 수준에 맞게 바꾸기](./docs/screenshots/step2-level-adaptation.png)
 
-### Step 3. 이야기 듣기
-![Step 3-1 - 쉬운 글 보기](./docs/screenshots/step3-listen-easy.png)
-![Step 3-2 - 이야기 듣기 액션](./docs/screenshots/step3-listen-actions.png)
+3. 이야기 듣기
+![Step 3 - 이야기 듣기](./docs/screenshots/step3-listen-actions.png)
 
-### Step 4. 말하기
-![Step 4-1 - 녹음 및 답변](./docs/screenshots/step4-conversation-recording.png)
-![Step 4-2 - 멀티턴 대화 1](./docs/screenshots/step4-conversation-multiturn1.png)
-![Step 4-3 - 멀티턴 대화 2](./docs/screenshots/step4-conversation-multiturn2.png)
+4. 말하기 (멀티턴 대화)
+![Step 4 - 말하기](./docs/screenshots/step4-conversation-multiturn2.png)
 
-### Step 5. 보호자 리포트
-![Step 5-1 - 리포트 시작](./docs/screenshots/step5-report-start.png)
-![Step 5-2 - 리포트 생성 중](./docs/screenshots/step5-report-loading.png)
-![Step 5-3 - 보호자 리포트 결과](./docs/screenshots/step5-report-result.png)
+5. 보호자 리포트
+![Step 5 - 보호자 리포트](./docs/screenshots/step5-report-result.png)
 
-## 핵심 사용자 흐름
-1. 책 고르기: 토끼/원숭이/하율 이야기 중 선택
-2. 그림 보기: 원문과 장면 확인, 필요 시 아이 수준에 맞게 바꾸기
-3. 이야기 듣기: 원문/쉬운 글 음성 듣기
-4. 말하기: Kanana 질문 → 아이 답변 → 피드백/다음 질문
-5. 리포트: 대화 기반 보호자 요약 리포트 생성
+추가 스크린샷은 [`./docs/screenshots`](./docs/screenshots)에서 확인할 수 있습니다.
 
 ## 주요 기능
 | 기능 | 설명 | 호출 시점 |
@@ -58,8 +50,18 @@
 - Next.js App Router
 - TypeScript
 - Tailwind CSS v4
-- React state + localStorage
 - MediaRecorder / Web Speech API / SpeechSynthesis
+- Kanana-o API
+
+## 배포 상태
+- 현재 Vercel을 통해 실제 배포 완료: [dadokdadok-kanana.vercel.app](https://dadokdadok-kanana.vercel.app)
+- 모바일/데스크톱 환경에서 사용 가능
+- 사용자가 직접 API Key를 입력해 즉시 테스트 가능
+
+## Repository / Demo / Tech Stack
+- Repository: [https://github.com/mk-isos/dadokdadok-kanana](https://github.com/mk-isos/dadokdadok-kanana)
+- Demo: [https://dadokdadok-kanana.vercel.app](https://dadokdadok-kanana.vercel.app)
+- Tech Stack: Next.js / TypeScript / Tailwind / Kanana-o API
 
 ## 폴더 구조 (요약)
 ```text
@@ -87,17 +89,20 @@ npm run build
 4. 서버/DB에 영구 저장하지 않음
 
 ## 현재 한계
-- Kanana 오디오 응답 포맷의 일부는 문서 불확실성으로 TODO 유지
-- 브라우저별 Web Speech API 지원 편차 존재
-- 기관용 다중 세션 관리 기능 미구현
+- Kanana API 응답 속도에 따라 음성 UX 체감이 달라질 수 있습니다.
+- Web Speech API는 브라우저별 지원 차이가 있습니다.
+- 현재는 단일 페이지 기반 그림책 데모 흐름 중심입니다.
+- 실제 기관용 계정/관리 기능은 포함되지 않습니다.
 
 ## 향후 개선 방향
-- 스토리 라이브러리/페이지 확장
-- 아동별 세션 히스토리 및 비교 리포트
-- STT/TTS 품질 고도화
-- 기관용 리포트 분리
+- 다중 페이지 그림책 읽기 흐름 지원
+- 사용자(아동) 세션 저장 및 이력 비교
+- 보호자 계정 기능 및 리포트 히스토리
+- 기관용 리포트/관리자 기능
+- Kanana 기반 감정형 음성 피드백 강화
+- 그림책 라이브러리 확대
 
-## 문서
+## Documents
 - [Architecture](./docs/ARCHITECTURE.md)
 - [Kanana API Flow](./docs/KANANA_API_FLOW.md)
 
