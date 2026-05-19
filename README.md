@@ -25,17 +25,21 @@
 
 2. 그림 보기
 ![Step 2 - 그림 보기](./docs/screenshots/step2-story-view.png)
+![Step 2-2 - 아이 수준에 맞게 바꾸기](./docs/screenshots/step2-level-adaptation.png)
 
 3. 이야기 듣기
-![Step 3 - 이야기 듣기](./docs/screenshots/step3-listen-actions.png)
+![Step 3-1 - 쉬운 글 보기](./docs/screenshots/step3-listen-easy.png)
+![Step 3-2 - 이야기 듣기 액션](./docs/screenshots/step3-listen-actions.png)
 
 4. 말하기 (멀티턴 대화)
-![Step 4 - 말하기](./docs/screenshots/step4-conversation-multiturn2.png)
+![Step 4-1 - 녹음 및 답변](./docs/screenshots/step4-conversation-recording.png)
+![Step 4-2 - 멀티턴 대화 1](./docs/screenshots/step4-conversation-multiturn1.png)
+![Step 4-3 - 멀티턴 대화 2](./docs/screenshots/step4-conversation-multiturn2.png)
 
 5. 보호자 리포트
-![Step 5 - 보호자 리포트](./docs/screenshots/step5-report-result.png)
-
-추가 스크린샷은 [`./docs/screenshots`](./docs/screenshots)에서 확인할 수 있습니다.
+![Step 5-1 - 리포트 시작](./docs/screenshots/step5-report-start.png)
+![Step 5-2 - 리포트 생성 중](./docs/screenshots/step5-report-loading.png)
+![Step 5-3 - 보호자 리포트 결과](./docs/screenshots/step5-report-result.png)
 
 ## 주요 기능
 | 기능 | 설명 | 호출 시점 |
