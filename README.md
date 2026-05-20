@@ -10,13 +10,18 @@
 
 ## Demo
 - Live Service: [https://dadokdadok-kanana.vercel.app](https://dadokdadok-kanana.vercel.app)
+- YouTube Demo: [https://youtu.be/eYhslwwuR5M](https://youtu.be/eYhslwwuR5M)
 - 사용자는 자신의 Kanana API Key를 직접 입력해 데모를 체험할 수 있습니다.
+
+[![YouTube Demo](https://img.youtube.com/vi/eYhslwwuR5M/maxresdefault.jpg)](https://youtu.be/eYhslwwuR5M)
 
 ## 프로젝트 소개
 다독다독은 Kanana-o를 활용해 그림책 독서 과정을 대화형 경험으로 확장한 MVP 서비스입니다.  
 아이가 읽기 어려운 문장도 원문/쉬운 문장으로 듣고, Kanana와 멀티턴 대화를 이어가며 감정을 표현할 수 있도록 설계했습니다.
 
 ## 핵심 화면
+실제 서비스 흐름은 아래 시연 영상을 통해 먼저 확인할 수 있습니다.
+
 ![대표 화면 - 다독다독 Step 흐름](./docs/screenshots/step1-book-select.png)
 
 ## Step Flow
